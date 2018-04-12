@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:padding="16dp"
+	tools:context=".MainActivity">
+	
+	<!-- Parent LinearLayout for nested Views -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		
+		<!-- Layout for START page -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:background="@drawable/malibu_pano_violes_bachelor_party_rez"
+			android:id="@+id/initLayout">
+				
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:textSize="24dp"
+				android:gravity="center_horizontal"
+				android:text="Welcome to the Kinesiology Quiz App"
+				android:textColor="@android:color/black"
+				android:layout_marginTop="8dp"
+				android:layout_marginBottom="8dp"/>
+			
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:paddingTop="16dp"
+				android:paddingBottom="8dp"
+				android:textSize="20dp"
+				android:text="Enter your name below, then hit the Start button!"/>
+			
+			<EditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/name_field"
+				android:hint="Name"
+				android:inputType="text"
+				android:paddingBottom="8dp"/>
+			
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center_horizontal"
+				android:layout_gravity="center"
+				android:textSize="16dp"
+				android:text="START"
+				android:textAllCaps="true"
+				android:onClick="startQuiz"/>
+		</LinearLayout>
+		
+		<!-- Layout for quiz questions
+				Initialize with LinearLayout.GONE
+				Visibility will change to LinearLayout.VISIBLE through startQuiz
+		-->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:id="@+id/quizLayout"
+			android:visibility="gone">
+			
+			<!-- Question 1 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question1"
+				android:text="1) Which of the following is considered a plane of motion?"/>
+			
+			<CheckBox
+				style="@style/AnswerTextStyle"
+				android:text="Frontal"
+				android:id="@+id/cbAns1"/>
+				
+			<CheckBox
+				style="@style/AnswerTextStyle"
+				android:text="Sagittal"
+				android:id="@+id/cbAns2"/>
+				
+			<CheckBox
+				style="@style/AnswerTextStyle"
+				android:text="Forward"
+				android:id="@+id/cbAns3"/>
+				
+			<CheckBox
+				style="@style/AnswerTextStyle"
+				android:text="Transverse"
+				android:id="@+id/cbAns4"/>
+			
+			<!-- Question 2 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question2"
+				android:text="2) Where does the kinetic chain begin during movement?"/>
+			
+			<RadioGroup
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Hands"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Feet"
+					android:id="@+id/rbAns"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Forward"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Transverse"
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 3 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question3"
+				android:text="3) Complete the following sentence with the best definition:\nA tendon..."/>
+			
+			<RadioGroup
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="is a flexible but inelastic cord of strong fibrous tissue attaching a muscle to a bone."
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="a short band of tough, flexible, fibrous connective tissue that connects two bones or cartilages or holds together a joint."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="is a soft tissue that composes muscles in animal bodies, and gives rise to muscles' ability to contract."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="is a resilient and smooth elastic tissue, rubber-like padding that covers and protects the ends of long bones at the joints."
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 4 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question4"
+				android:text="4) Which of the following joint complexes has the GREATEST degrees of freedom?"/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Knee"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Sacroiliac"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Shoulder"
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Elbow"
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 5 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question5"
+				android:text="5) Which of the following does NOT contribute towards hypertrophy?"/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Progressive overload"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Delayed Onset Muscle Soreness (DOMS)"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="High volume/heavy weight"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="High volume/many reps (+10)"
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 6 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question6"
+				android:text="6) Sedentary populations tend to see a large increase in strength when first beginning a resistance program. This is mostly due to..."/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="an increase in neuromuscular activity."
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="inital hypertrophy of the muscles."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="an increase in VO2."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="improved blood circulation."
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 7 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question7"
+				android:text="7) Ground reaction forces..."/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="define a twisting force that tends to cause rotation."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="defines the force exerted by the ground on a body in contact with it."
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="defines a force that acts on a body moving in a cirular path towards the axis of rotation."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="defines a force that delivers a shock or high impact in a short period of time."
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 8 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question8"
+				android:text="8) Whiplash is caused by..."/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="heavy impact of the brain against the skull."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="a slipped vertebral disc."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="inadequate strength in the msucles of the neck complex."
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="the quick stretching and lengthening of neck extensors, followed by stretching and lengthening of the neck flexors, then again the extensors."
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 9 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question9"
+				android:text="9) Resistance training and cardiovascular training is beneficial for everyone and does not require physician authorization."/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="True"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="False"
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Not enough information"
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<!-- Question 10 -->
+			<TextView
+				style="@style/QuestionTextStyle"
+				android:id="@+id/question10"
+				android:text="10) Select which of the following is a knee flexor."/>
+			
+			<RadioGroup
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical">
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Plantaris"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Vastus lateralis"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Triceps brachii"
+					android:onClick="checkAnswer"/>
+				
+				<RadioButton
+					style="@style/AnswerTextStyle"
+					android:text="Semitendinosus"
+					android:id="@id/rbAns"
+					android:onClick="checkAnswer"/>
+			</RadioGroup>
+			
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Finish"
+				android:onClick="finishQuiz"
+				android:id="@+id/btnFinish"/>
+		</LinearLayout>
+	
+	</LinearLayout>
+
+</ScrollView>

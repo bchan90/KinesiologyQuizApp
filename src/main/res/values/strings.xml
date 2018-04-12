@@ -1,0 +1,4 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+	<string name="app_name">Kinesiology Quiz App</string>
+	<!--<string><xliff:g id="name" example="Name">%s</xliff:g></string>-->
+</resources>
